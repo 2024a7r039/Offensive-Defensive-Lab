@@ -3,3 +3,5 @@
 ## Experiment 1: Network scanning using Nmap and Vulnerability Scanning using nessus
 ## Experiment 2: Simulated Ethical Hacking with Metasploit
 ## Experiment 3: Using Wireshark to analyze FTP and HTTP traffic
+## Experiment 4: PfSense and Snort IDS setup and network Traffic analysis
+
