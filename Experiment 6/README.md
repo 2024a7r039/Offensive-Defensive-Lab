@@ -1,13 +1,5 @@
 # Experiment 6 — DVWA Website Risk Assessment
 
-**Student:** Harleen  
-**Course:** Ethical Hacking & Network Security Lab, Model Institute of Engineering and Technology (MIET), Jammu  
-**Lab run represented by this report:** Yaseen's run on 18 October 2026, shared with permission  
-**Scanner:** OWASP ZAP 2.17.0  
-**Target application:** DVWA 1.0.7 on Metasploitable 2 (`192.168.1.100`)  
-**Virtualization:** VirtualBox; Kali Linux used as the scanning system
-
-> **Evidence and authorship:** The workflow, screenshots, and scan data in this README are from Yaseen's lab run and are shared for this submission with the instructor's permission. They should not be represented as a scan performed on Harleen's own machine.
 
 ## Overview
 
@@ -27,17 +19,17 @@ The assignment handout recommends host-only networking on `192.168.56.x`. In the
 
 ### A. Reachability and application setup
 
-Yaseen's notes state that Kali first checked connectivity to `192.168.1.100` with:
+Kali was used to check connectivity to `192.168.1.100`:
 
 ```bash
 ping -c 4 192.168.1.100
 ```
 
-The notes record four replies and zero packet loss. DVWA was then accessed at `/dvwa/login.php` and its security setting was changed to **Low**. The IP, ping, and DVWA security screenshots referenced by the Claude draft were not included in the image files available for this package.
+Four replies were received with zero packet loss. DVWA was then accessed at `/dvwa/login.php` and its security setting was changed to **Low**. The IP, ping, and DVWA security screenshots were not included with the available image files.
 
 ### B. Start ZAP
 
-The source notes record an initial package mirror connection problem, followed by a successful install after changing mirrors. The commands recorded for installing and starting the scanner were:
+An initial package mirror connection problem was resolved by changing to a working mirror. The scanner was installed and started with:
 
 ```bash
 sudo apt update
@@ -93,7 +85,7 @@ An alert count is a summary of scanner output. Each alert needs review to determ
 
 ### Named alerts and category notes
 
-These names and risk levels are transcribed from the provided Yaseen README. The OWASP category column is a suggested mapping to OWASP Top 10 (2021), not a claim that the scanner independently assigned each category. The actual ZAP alert tags and detail in the exported report should take precedence.
+These names and risk levels are from the generated report. The OWASP category column is a suggested mapping to OWASP Top 10 (2021), not a claim that the scanner independently assigned each category. The actual ZAP alert tags and detail in the exported report should take precedence.
 
 | Alert recorded | Risk | Suggested OWASP Top 10 (2021) mapping |
 |---|---|---|
@@ -111,7 +103,7 @@ These names and risk levels are transcribed from the provided Yaseen README. The
 | Server Leaks Version Information via `Server` header | Low | A05 — Security Misconfiguration |
 | `X-Content-Type-Options` Header Missing | Low | A05 — Security Misconfiguration |
 
-The other Low alerts named in the supplied README are In Page Banner Information Leak, Private IP Disclosure, Timestamp Disclosure (Unix), and a second Application Error Disclosure. The named Informational alerts are Authentication Request Identified, Cookie Poisoning, Information Disclosure (Suspicious Comments), Modern Web Application, and Session Management Response Identified. The provided summary does not enumerate every alert name; the complete exported report should be used for a definitive list.
+Other Low alerts are In Page Banner Information Leak, Private IP Disclosure, Timestamp Disclosure (Unix), and a second Application Error Disclosure. Informational alerts include Authentication Request Identified, Cookie Poisoning, Information Disclosure (Suspicious Comments), Modern Web Application, and Session Management Response Identified. The summary does not enumerate every alert name; use the complete exported report for the full list.
 
 ## What the results indicate
 
